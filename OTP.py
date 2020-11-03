@@ -59,7 +59,7 @@ else:
     print('Encrypted text does not match Ciphertext.')
 
 # Assigning new PT.
-plainText =  "attack at dusk"
+plainText =  "attacks at python"
 encryptedTxtInHex = OTPencryption(plainText,OTP)
 print('The Ciphertext in Hex form is: ', encryptedTxtInHex)
 # Check if PT can be deduced from CT and OTP.
