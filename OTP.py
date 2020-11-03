@@ -1,6 +1,4 @@
 # Stream Cipher using One Time Pad (OTP) ---- Simple Example.
-plainText =  "attack at dawn"
-CipherText = "6c73d5240a948c86981bc294814d"
 def PTManipulation(plainText):
     messageToAscii = [ord(letter) for letter in plainText]
     # print('Ascii form is: ', messageToAscii)
@@ -43,6 +41,8 @@ def getOrigPT(OTP, CTtoBin):
     return binToIntString.to_bytes((binToIntString.bit_length() + 7) // 8, 'big').decode()
 
 # Main run.
+plainText =  "attack at dawn"
+CipherText = "6c73d5240a948c86981bc294814d"
 PT = PTManipulation(plainText)
 CTtoBin = ctManipulation(CipherText)
 OTP = getOTP(PT, CTtoBin)
