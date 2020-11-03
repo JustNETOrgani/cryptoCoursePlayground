@@ -37,7 +37,7 @@ def getOrigPT(OTP, CTtoBin):
     binString = '0'+'{0:b}'.format(deducedMsgAsInt)
     #print('PT is: ', deducedMessageBin)
     binToIntString = int(binString, 2)
-    print('Getting orignla plaintext...')
+    print('Getting original plaintext...')
     return binToIntString.to_bytes((binToIntString.bit_length() + 7) // 8, 'big').decode()
 
 # Main run.
