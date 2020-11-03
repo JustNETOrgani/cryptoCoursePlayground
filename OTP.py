@@ -1,7 +1,7 @@
 # Stream Cipher using One Time Pad (OTP) ---- Simple Example.
 plainText =  "attack at dawn"
 CipherText = "6c73d5240a948c86981bc294814d"
-def PTManipulation(planText):
+def PTManipulation(plainText):
     messageToAscii = [ord(letter) for letter in plainText]
     # print('Ascii form is: ', messageToAscii)
     messageToBin = list()
