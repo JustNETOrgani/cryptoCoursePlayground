@@ -44,6 +44,15 @@ def distrbuteShares(k_one_prime, k_two_prime):
     share_3.append(k_two_prime)
     return share_1, share_2, share_3
 
+def reconstructSecret(share_1, share_2, share_3):
+    xord_share_1 = bin(share_1[0]) ^ bin(share_1[1])
+    xord_share_2 = bin(share_2[0]) ^ bin(share_2[1])
+    xord_shared_1n2 = xord_share_1[2:] ^ xord_share_2[2:]
+    xord_to_share3 = xord_shared_1n2 ^ bin(share_3[0])
+    sec_binToIntString = int(xord_to_share3, 2)
+    print('Getting reconstructed secret...')
+    return sec_binToIntString.to_bytes((sec_binToIntString.bit_length() + 7) // 8, 'big').decode()
+
 # Main function
 def mainFunc():
     pass
