@@ -1,4 +1,5 @@
-# A simple implementation of Secret Sharing Scheme using XOR and Random number generation. 
+# A simple implementation of Secret Sharing Scheme using XOR and Random number generation.
+# Three executives out of which any two can reconstruct the secret. 
 import secrets 
 
 # Helper functions
@@ -43,14 +44,12 @@ def distrbuteShares(k_one, k_one_prime, k_two, k_two_prime):
     return share_1, share_2, share_3
 
 def reconstructSecret(share_1, share_2, share_3):
-    xord_share_1 = share_1[0] ^ share_1[1]
-    xord_share_2 = share_2[0] ^ share_2[1]
-    xord_Share1n2 = xord_share_1 ^ xord_share_2
-    xord_share1n3 = xord_share_1 ^ share_3[0]
-    xord_share2n3 = xord_share_2 ^ share_3[0]
-    sec_binToIntStringFromS1n2 = bin(xord_Share1n2)
-    sec_binToIntStringFromS1n3 = bin(xord_share1n3)
-    sec_binToIntStringFromS2n3 = bin(xord_share2n3)
+    secReconFor1n2 = share_1[0] ^ share_2[0]
+    secReconFor1n3 = share_1[1] ^ share_3[0]
+    secReconFor2n3 = share_2[1] ^ share_3[0]
+    sec_binToIntStringFromS1n2 = bin(secReconFor1n2)
+    sec_binToIntStringFromS1n3 = bin(secReconFor1n3)
+    sec_binToIntStringFromS2n3 = bin(secReconFor2n3)
     print('Getting reconstructed secret. Standby...')
     reconstructions = list()
     reconstructions.extend(('0'+ sec_binToIntStringFromS1n2[2:],'0'+ sec_binToIntStringFromS1n3[2:],'0'+ sec_binToIntStringFromS2n3[2:]))
